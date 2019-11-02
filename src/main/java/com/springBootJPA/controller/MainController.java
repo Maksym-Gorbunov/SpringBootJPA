@@ -9,10 +9,7 @@ public class MainController {
 
   @RequestMapping("/")
   public ModelAndView home(){
-    System.out.println("__index");
-    String name = "maks";
     ModelAndView mv = new ModelAndView();
-    mv.addObject("name", name);
     mv.setViewName("home");
     return mv;
   }
