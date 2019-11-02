@@ -50,4 +50,14 @@ public class DevController {
     return mv;
   }
 
+  @RequestMapping("findAllWithIdGreaterThan")
+  public ModelAndView findAllWithIdGreaterThan(int id){
+    List<Developer> result = developerRepo.findByIdGreaterThan(id);
+    ModelAndView mv = new ModelAndView("pages/findByLang");
+    String message = "Search findAllWithIdGreaterThan result:";
+    mv.addObject("message", message);
+    mv.addObject("result", result);
+    return mv;
+  }
+
 }

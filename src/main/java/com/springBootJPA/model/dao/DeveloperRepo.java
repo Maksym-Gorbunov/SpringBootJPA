@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface DeveloperRepo extends CrudRepository<Developer, Integer> {
   public List<Developer> findByLang(String lang);
+
+  public List<Developer> findByIdGreaterThan(int id);
 }
