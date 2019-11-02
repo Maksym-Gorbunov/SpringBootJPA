@@ -5,6 +5,7 @@ import com.springBootJPA.model.dao.DeveloperRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -59,5 +60,16 @@ public class DevController {
     mv.addObject("result", result);
     return mv;
   }
+
+
+  ////////////////////////////// REST ///////////////////////////////////////
+
+  @RequestMapping("developers")
+  @ResponseBody
+  public String getDevelopers(){
+    return developerRepo.findAll().toString();
+  }
+
+
 
 }
