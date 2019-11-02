@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>Find by lang result:</p>
+
+<table class="table table-striped">
+    <tr th:each="dev : ${result}">
+        <td th:text="${dev.id}"></td>
+        <td th:text="${dev.name}"></td>
+        <td th:text="${dev.lang}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

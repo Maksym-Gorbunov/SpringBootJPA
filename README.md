@@ -2,7 +2,8 @@
 @author: Maksym Gorbunov
 
 * Java 
-* SpringBoot JPA
+* Spring Boot 
+* Data JPA
 * MVC / Web
 * Spring Annotations (@Controller, @Autowire, @RequestMapping...)
 * Thymeleaf

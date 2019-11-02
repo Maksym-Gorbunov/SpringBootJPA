@@ -1,12 +1,19 @@
 package com.springBootJPA.model.dao;
 
 import com.springBootJPA.model.Developer;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
 public interface DeveloperRepo extends CrudRepository<Developer, Integer> {
-  public List<Developer> findByLang(String lang);
+                        //field name
+  List<Developer> findByLang(String lang);
+                          //auto
+  List<Developer> findByIdGreaterThan(int id);
 
-  public List<Developer> findByIdGreaterThan(int id);
+  //make own query method, learn JPQL
+  @Query("from Developer where lang=?1 order by name")
+  List<Developer> findByLangSorted(String lang);
+
 }
