@@ -4,11 +4,13 @@ import com.springBootJPA.model.Developer;
 import com.springBootJPA.model.dao.DeveloperRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class DevController {
@@ -64,12 +66,35 @@ public class DevController {
 
   ////////////////////////////// REST ///////////////////////////////////////
 
-  @RequestMapping("developers")
+//  // http://localhost:9090/developers/
+//  @RequestMapping("developers")
+//  @ResponseBody
+//  public String getDevelopers(){
+//    return developerRepo.findAll().toString();
+//  }
+
+/*
+  // http://localhost:9090/developers/2
+  @RequestMapping("developers/{id}")
   @ResponseBody
-  public String getDevelopers(){
-    return developerRepo.findAll().toString();
+  public String getDeveloperById(@PathVariable("id") int id){
+    return developerRepo.findById(id).toString();
+  }
+*/
+
+  // Optional return JSON - spring JPARepository magic
+  // http://localhost:9090/developers/2
+  @RequestMapping("developers/{id}")
+  @ResponseBody
+  public Optional<Developer> getDeveloperById(@PathVariable("id") int id){
+    return developerRepo.findById(id);
   }
 
-
+  // http://localhost:9090/developers/
+  @RequestMapping("developers")
+  @ResponseBody
+  public List<Developer> getDevelopers(){
+    return developerRepo.findAll();
+  }
 
 }
